@@ -106,7 +106,7 @@ class paperMarioBoard:
 			# i,j belongs to a column or a group of 4, residing in the 3rd and 4th rows only
 			# column check:
 			tempCol = [x[j] for x in arr]
-			if (tempCol.count(1) == 4):
+			if (tempCol.count(0) == 0): # no empty tiles
 				for k in range(len(arr)):
 					arr[k][j]  = 0
 					continue
@@ -120,7 +120,7 @@ class paperMarioBoard:
 			mergeArr[j] = int(arr[2][j] and arr[3][j])
 		tempArr = deepcopy(mergeArr)
 		for j in range(len(tempArr)-1):
-			if (tempArr[j] == 1 and tempArr[j+1] == 1):
+			if (tempArr[j] != 0 and tempArr[j+1] != 0):
 				tempArr[j] = 0
 				tempArr[j+1] = 0
 		if tempArr.count(0) == 12:
@@ -129,13 +129,13 @@ class paperMarioBoard:
 		tempArr = deepcopy(mergeArr)
 		tempArr = tempArr[1:] + tempArr[:1]
 		for j in range(len(tempArr)-1):
-			if (tempArr[j] == 1 and tempArr[j+1] == 1):
+			if (tempArr[j] != 0 and tempArr[j+1] != 0):
 				tempArr[j] = 0
 				tempArr[j+1] = 0
 		if tempArr.count(0) == 12:
 			arr[2] = tempArr
 			arr[3] = tempArr
-		return sum([sum(x) for x in arr]) == 0
+		return all(all(element == 0 for element in row) for row in arr)
 
 
 # class bossBoard:

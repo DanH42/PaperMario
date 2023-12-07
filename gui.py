@@ -2,6 +2,7 @@ from solver import paperMarioSolver
 import math
 import pygame
 
+
 class TestColorScheme:
 	color_array = ['#f7f7f7', '#ff0000', '#00ff00', '#0000ff', '#ffff00', '#00ffff', '#ff00ff', '#000000', '#808080']
 	TEXT_FG = pygame.Color(color_array[0])
@@ -25,6 +26,7 @@ class DefaultColorScheme:
 	SELECT  = pygame.Color("#99eeff")
 	OVERLAY = pygame.Color("#888888")
 	INVALID = pygame.Color("#cc2200")
+
 
 class GUI:
 	def __init__(self, board=None, window_size=800, font_size=36, colors=DefaultColorScheme):
@@ -51,6 +53,7 @@ class GUI:
 		self.font = pygame.font.Font(None, font_size)
 
 		self.colors = colors
+
 
 	def run(self):
 		while True:
@@ -107,6 +110,7 @@ class GUI:
 
 			self.clock.tick(60)
 
+
 	def init_board(self):
 		self.screen.fill(self.colors.GRASS)
 
@@ -159,6 +163,7 @@ class GUI:
 
 		# Store a copy of the current screen for later use
 		self.empty_board = self.screen.copy()
+
 
 	def render(self, mouse_pos):
 		# Render complex geometry once, then re-use it as a static background later
@@ -233,6 +238,7 @@ class GUI:
 		# Render to the screen
 		pygame.display.flip()
 
+
 	def get_slice(self, mouse_pos):
 		# Calculate polar coordinates relative to the center of the board
 		relative_x = mouse_pos[0] - self.center_pos[0]
@@ -252,6 +258,7 @@ class GUI:
 				return i, slice_index
 
 		return None
+
 
 	def count_enemies(self):
 		count = 0
