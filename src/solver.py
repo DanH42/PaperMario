@@ -1,6 +1,6 @@
-from board import paperMarioBoard, move
+from .board import paperMarioBoard, move
 from copy import deepcopy
-from collections import deque
+from collections import deque	
 
 
 class paperMarioSolver:
@@ -35,6 +35,7 @@ class paperMarioSolver:
 
 
 	def findSolutionBFS(self):
+		self.resetState()
 		# solutions are stored as tuple ([moves made], nextMove) in a queue
 		frontier = deque()
 		for testMove in move.getAllMoves():
@@ -60,6 +61,7 @@ class paperMarioSolver:
 
 
 	def findSolutionDFS(self):
+		self.resetState()
 		solution = []
 		for testMove in move.getAllMoves():
 			self.board.makeMove(testMove)

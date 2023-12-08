@@ -1,4 +1,4 @@
-from solver import paperMarioSolver
+from .solver import paperMarioSolver
 import math
 import pygame
 
