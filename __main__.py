@@ -1,11 +1,11 @@
-from PaperMario.src.gui import GUI
-import PaperMario.tests.test_performance as tests
+from src.gui import GUI
+from tests.test_performance import testSearchPerformance
 
 if __name__ == '__main__':
-	# gui = GUI()
-	# gui.run()
+	gui = GUI()
+	gui.run()
 
-	tests.testSearchPerformance()
+	# testSearchPerformance()
 
 
 	

@@ -1,4 +1,4 @@
-from ..src.solver import paperMarioSolver
+from src.solver import paperMarioSolver
 from copy import deepcopy
 import random
 import timeit
